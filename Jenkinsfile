@@ -23,7 +23,9 @@ pipeline {
         stage('Push Docker Image') {
             steps {     
                 script {
-                    docker.image("taeahmed/simple_flask_app:latest").push() 
+                    docker.withRegistry('https://index.docker.io/v1/', credentialsId: 'docker-hub-creds') {
+                        docker.image("taeahmed/simple_flask_app:latest").push() 
+                    }
                 }           
             }
         }
