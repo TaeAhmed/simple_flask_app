@@ -23,7 +23,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {     
                 script {
-                    docker.push("taeahmed/simple_flask_app:latest") 
+                    docker.image("taeahmed/simple_flask_app:latest").push() 
                 }           
             }
         }
