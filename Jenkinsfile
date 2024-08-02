@@ -10,7 +10,9 @@ pipeline {
         } */
         stage('Build Docker Image') {
             steps {
-                docker.build("taeahmed/simple_flask_app:latest")
+                scrript {
+                    docker.build("taeahmed/simple_flask_app:latest")
+                }
             }
          }   
     /*    stage('Security Scan') {
@@ -20,7 +22,9 @@ pipeline {
         } */
         stage('Push Docker Image') {
             steps {     
-                docker.push("taeahmed/simple_flask_app:latest")    
+                script {
+                    docker.push("taeahmed/simple_flask_app:latest") 
+                }           
             }
         }
     }
