@@ -9,13 +9,8 @@ pipeline {
             }
         } */
         stage('Build Docker Image') {
-            ageant {
-                docker { 
-                    docker.build("taeahmed/simple_flask_app:latest")
-                }
-            }
             steps {
-            
+                docker.build("taeahmed/simple_flask_app:latest")
             }
          }   
     /*    stage('Security Scan') {
@@ -24,13 +19,8 @@ pipeline {
             }
         } */
         stage('Push Docker Image') {
-            ageant {
-                docker {
-                    docker.push("taeahmed/simple_flask_app:latest")
-                }
-            }
             steps {     
-                
+                docker.push("taeahmed/simple_flask_app:latest")    
             }
         }
     }
