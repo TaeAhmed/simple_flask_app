@@ -10,7 +10,7 @@ pipeline {
         } */
         stage('Build Docker Image') {
             steps {
-                script {
+                scrript {
                     docker.build("taeahmed/simple_flask_app:latest")
                 }
             }
