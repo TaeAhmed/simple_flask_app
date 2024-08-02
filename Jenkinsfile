@@ -9,20 +9,28 @@ pipeline {
     #        }
     #    }
         stage('Build Docker Image') {
-            steps {
-                docker.build("taeahmed/simple_flask_app:latest")
+            ageant {
+                docker { 
+                    docker.build("taeahmed/simple_flask_app:latest")
+                }
             }
-        }
+            steps {
+            
+            }
+         }   
     #    stage('Security Scan') {
     #        steps {
     #            sh 'trivy image taeahmed/simple_flask_app:latest'
     #        }
     #    }
         stage('Push Docker Image') {
-            steps {
-                docker.withRegistry('https://index.docker.io/v1/') {
+            ageant {
+                docker {
                     docker.push("taeahmed/simple_flask_app:latest")
                 }
+            }
+            steps {     
+                
             }
         }
     }
