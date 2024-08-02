@@ -7,7 +7,7 @@ pipeline {
                 // Your security tests commands here
                 sh 'python -m pytest tests' // Example using pytest
             }
-    */    }
+        } */
         stage('Build Docker Image') {
             ageant {
                 docker { 
@@ -22,7 +22,7 @@ pipeline {
             steps {
                 sh 'trivy image taeahmed/simple_flask_app:latest'
             }
-    */    }
+        } */
         stage('Push Docker Image') {
             ageant {
                 docker {
